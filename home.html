@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./main.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body onload="onLoad()">
+       <div id="header">
+            <h1>Air Quality Monitoring Dashboard</h1>
+            <h3>Monitors and displays real-time air quality data<h3>
+            <div id="locationName" style="margin-right: -20px;"></div>
+            <div id="timeZone">
+                <span id="timeZone">Thurday, 16:50</span>
+            </div>
+       </div>
+        <div id="dashboard">
+            <div id="textContainer">
+                <input id="searchBar" type="text" placeholder="Search for a city">
+            </div>
+
+            <div id="grid-container">
+                <div id="temperature" class="grid-item">
+                    <div class="slider-wrapper">
+                        <div class="slider">
+                          <div id="slide-1" style="padding-left: 15px; padding-top: 10px;">
+                            <div style="display: flex;">
+                                <div id="temperatureTextContent" style="margin-right: 60px;">
+                                    <p>Temperature:</p>
+                                    <span id="dynamicTemperature" style='font-size:20px;'></span>
+                                    <br>
+                                    <input id="temperatureTrendButton" type="button" value="CHECK TREND" onclick="getForecast()">
+                                </div>
+                                <div id="chartAnimation">
+                                    <img src="./images/barChart.gif" alt="" width="80px" height="80px">
+                                </div>
+                            </div>
+                          </div>
+                          <div id="slide-2"  style="padding-left: 15px; padding-top: 10px;">
+                            <div style="display: flex;">
+                                <div id="humidityTextContent" style="margin-right: 60px;">
+                                    <p>Humidity:</p>
+                                    <span id="dynamicHumidity" style='font-size:20px;'></span>
+                                    <br>
+                                    <input id="humidityTrendButton" type="button" value="CHECK TREND" onclick="getHumidityForecast()">
+                                </div>
+                                <div id="chartAnimation">
+                                    <img src="./images/barChart.gif" alt="" width="80px" height="80px">
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="slider-nav">
+                          <a href="#slide-1"></a>
+                          <a href="#slide-2"></a>
+                        </div>
+                      </div>
+                </div>
+                <div id="forecastContainer" style="width: 290px; height: 0px; border: 0.5px solid gray; text-align: right;">
+                    <canvas id="myLineChart" style="width: 100%; height: 100%;"></canvas>
+                </div>
+            </div>
+            <div id="airPollutionDataTitle">Air Pollution Data</div>
+            <div id="grid-container2">
+                <div class="grid-item-special">
+                    <div class="circular-bar">
+                      <div class="percent">PM 2.5 <br>0%</div>
+                    </div>
+                </div>
+                <div class="grid-item-special">
+                    <div class="circular-bar">
+                      <div class="percent">PM 10 <br>0%</div>
+                    </div>
+                </div>
+                <div class="grid-item-special">
+                    <div class="circular-bar">
+                      <div class="percent">NH3 <br>0%</div>
+                    </div>
+                </div>
+                <div class="grid-item-special">
+                    <div class="circular-bar">
+                      <div class="percent">SO2 <br>0%</div>
+                    </div>
+                </div>
+                
+            </div>
+            <div>
+                <h3>Best Air Quality Cities Ranking</h3>
+                <div>
+                    <div class="rankingElements" id="ranking1">
+                        <p id="ranking1City" style="margin-bottom: 7px;">Busan, South Korea<p>
+                        <p id="ranking1Aqi">AQI: 10</p>
+                    </div>
+                    <div class="rankingElements" id="ranking2">
+                        <p id="ranking2City" style="margin-bottom: 7px;">Busan, South Korea<p>
+                        <p id="ranking2Aqi">AQI: 10</p>
+                    </div>
+                    <div class="rankingElements" id="ranking3">
+                        <p id="ranking3City" style="margin-bottom: 7px;">Busan, South Korea<p>
+                        <p id="ranking3Aqi">AQI: 10</p>
+                    </div>
+                    <div class="rankingElements" id="ranking4">
+                        <p id="ranking4City" style="margin-bottom: 7px;">Busan, South Korea<p>
+                        <p id="ranking4Aqi">AQI: 10</p>
+                    </div>
+                    <div class="rankingElements" id="ranking5">
+                        <p id="ranking5City" style="margin-bottom: 7px;">Busan, South Korea<p>
+                        <p id="ranking5Aqi">AQI: 10</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>
